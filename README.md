@@ -338,4 +338,8 @@ If you want to contribute to this project, please follow the steps below:
 ## **License**
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Demo
+
+![Dashboard demo](student/Screenshot_2025-09-26_at_12-09-01_Preskool_-_Dashboard.png)
+
 
