@@ -1,101 +1,101 @@
+# Student Management System using Django
 
-# Student Management System
-
-A comprehensive **Student Management System** built with **Django**, designed to efficiently manage student information, enrollment, authentication, and administrative functionalities. This application provides a streamlined solution for educational institutions to manage student data with role-based access control.
+A Django-based student management app for enrollment, authentication, role-based access, notifications, and student/parent records.
 
 ## Features
+- Student & Parent CRUD
+- Custom user model with role-based access control
+- Password reset (token-based)
+- Media uploads (student photos)
+- Notifications and dashboard
+- Responsive templates (Bootstrap)
+- Dockerized setup (Gunicorn + WhiteNoise)
 
-- **Student Management**: Complete student enrollment, registration and profile management
-- **Parent Information**: Comprehensive parent/guardian details management
-- **Custom Authentication**: Role-based access control with custom user model
-- **Password Reset**: Secure password reset functionality with token-based verification
-- **Responsive Dashboard**: Mobile-friendly admin dashboard with statistics
-- **Media Management**: Student photo upload and management
-- **Notification System**: Built-in notification system for users
-- **REST API Ready**: Structured for easy API integration
-
-## Technologies Used
-
-- **Backend**: Django 5.1.1, Python 3.10+
-- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap 4+
-- **Database**: SQLite (development), PostgreSQL ready
-- **Media Handling**: Pillow for image processing
-- **Deployment**: Docker, Gunicorn, Whitenoise for static files
-- **Version Control**: Git
-- **Containerization**: Docker & Docker Compose
-
-## Project Structure
-
-```
-django-project/
-│
-├── manage.py                  # Django management script
-├── requirements.txt           # Python dependencies
-├── Dockerfile                # Docker configuration
-├── docker-compose.yml        # Docker Compose setup
-├── README.md                 # Project documentation
-│
-├── Home/                     # Main Django project
-│   ├── __init__.py
-│   ├── settings.py           # Django settings
-│   ├── urls.py              # Main URL configuration
-│   ├── wsgi.py              # WSGI application
-│   └── asgi.py              # ASGI application
-│
-├── home_auth/               # Authentication app
-│   ├── models.py            # Custom user model & password reset
-│   ├── views.py             # Authentication views
-│   ├── urls.py              # Authentication URLs
-│   └── migrations/          # Database migrations
-│
-├── student/                 # Student management app
-│   ├── models.py            # Student & Parent models
-│   ├── views.py             # Student CRUD operations
-│   ├── urls.py              # Student URLs
-│   └── migrations/          # Database migrations
-│
-├── school/                  # School administration app
-│   ├── models.py            # Notification model
-│   ├── views.py             # Dashboard views
-│   └── urls.py              # School URLs
-│
-├── templates/               # HTML templates
-│   ├── authentication/      # Auth templates
-│   ├── Home/               # Dashboard templates
-│   └── students/           # Student templates
-│
-├── static/                  # Static files
-│   └── assets/             # CSS, JS, Images
-│
-└── media/                   # User uploaded files
-    └── students/           # Student photos
-```
-
-## Installation
-
-### Prerequisites
-- Python 3.8+ 
-- pip (Python package manager)
+## Tech Stack
+- Django (Python)
+- HTML, CSS, JavaScript, Bootstrap
+- SQLite (dev), PostgreSQL-ready
+- Docker, Docker Compose, Gunicorn, WhiteNoise
 - Git
 
-### Method 1: Local Development (Without Docker)
+## Project Structure
+```
+django-project/
+├─ manage.py
+├─ requirements.txt
+├─ Dockerfile
+├─ docker-compose.yml
+├─ README.md
+├─ Home/
+│  ├─ settings.py
+│  ├─ urls.py
+│  ├─ wsgi.py
+│  └─ asgi.py
+├─ home_auth/
+│  ├─ models.py
+│  ├─ views.py
+│  ├─ urls.py
+│  └─ migrations/
+├─ student/
+│  ├─ models.py
+│  ├─ views.py
+│  ├─ urls.py
+│  └─ migrations/
+├─ school/
+│  ├─ models.py
+│  ├─ views.py
+│  └─ urls.py
+├─ templates/
+│  ├─ authentication/
+│  ├─ Home/
+│  └─ students/
+├─ static/
+│  └─ assets/
+└─ media/
+   └─ students/
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/django-project.git
-   cd django-project
-   ```
+## Setup
 
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   
-   # On Windows
-   venv\Scripts\activate
-   
-   # On macOS/Linux
-   source venv/bin/activate
-   ```
+### Local (no Docker)
+```bash
+git clone https://github.com/yourusername/django-project.git
+cd django-project
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py collectstatic --noinput
+python manage.py runserver
+```
+
+### Docker
+```bash
+docker-compose up --build
+```
+
+## Configuration
+Create a `.env` in project root:
+```env
+DEBUG=True
+SECRET_KEY=your_secret_key_here
+DATABASE_URL=sqlite:///db.sqlite3
+# For Postgres:
+# DATABASE_URL=postgres://user:password@localhost:5432/dbname
+```
+
+## URLs
+- /admin/ (Admin)
+- / (Dashboard)
+- /authentication/ (Auth)
+- /student/ (Student management)
+
+## Testing
+```bash
+python manage.py test
+```
+
 
 3. **Install dependencies**
    ```bash
