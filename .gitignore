@@ -132,8 +132,9 @@ dmypy.json
 media/
 staticfiles/
 static_root/
-/static/
-!/static/assets/
+
+# Static assets (allow static directory but not generated staticfiles)
+!/static/
 
 # Local database
 *.sqlite3
